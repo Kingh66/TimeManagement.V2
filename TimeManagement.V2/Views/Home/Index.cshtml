@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<h2>Welcome to Time Management</h2>
+
+<p>This is your home page. You can customize this view to provide information, links, or any other content you'd like to display on your home page.</p>
+
+<p>Get started by adding a new module:</p>
+<a asp-controller="Module" asp-action="Create" id="addModuleLink">Add Module</a>
+
+<!-- Your other HTML content -->
+@section Scripts {
+    <script>
+        // Your custom JavaScript code here
+        document.addEventListener("DOMContentLoaded", function () {
+            var addModuleLink = document.getElementById("addModuleLink");
+
+            if (addModuleLink) {
+                addModuleLink.addEventListener("click", function (e) {
+                    e.preventDefault(); // Prevent the default link behavior
+                    window.location.href = "/Module/Create";
+                });
+            }
+        });
+    </script>
+}

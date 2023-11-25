@@ -1,0 +1,40 @@
+﻿@model List<TimeManagement.V2.Models.Module>
+
+<div>
+    <a asp-controller="Module" asp-action="Create">Create Module</a> |
+    <a asp-controller="Module" asp-action="Edit">Edit Module</a> |
+    <a asp-controller="Module" asp-action="Delete">Delete Module</a>
+</div>
+
+<h2>Module List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Credits</th>
+            <th>Class Hours Per Week</th>
+            <th>Number of Weeks</th>
+            <th>Date</th>
+            <th>Total Hours Spent</th>
+            <th>Last Study Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var module in Model)
+        {
+            <tr>
+                <td>@module.Code</td>
+                <td>@module.Name</td>
+                <td>@module.Credits</td>
+                <td>@module.ClassHoursPerWeek</td>
+                <td>@module.NumWeeks</td>
+                <td>@module.Date.ToShortDateString()</td>
+                <td>@module.TotalHoursSpent</td>
+                <td>@module.LastStudyDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

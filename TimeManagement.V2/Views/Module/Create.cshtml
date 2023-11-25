@@ -1,0 +1,44 @@
+﻿@model TimeManagement.V2.Models.Module
+
+<h2>Create Module</h2>
+
+<form asp-controller="Module" asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Code">Code:</label>
+        <input asp-for="Code" class="form-control" required />
+        <span asp-validation-for="Code" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" class="form-control" required />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Credits">Credits:</label>
+        <input asp-for="Credits" type="number" class="form-control" required />
+        <span asp-validation-for="Credits" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ClassHoursPerWeek">Class Hours Per Week:</label>
+        <input asp-for="ClassHoursPerWeek" type="number" class="form-control" required />
+        <span asp-validation-for="ClassHoursPerWeek" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NumWeeks">Number of Weeks:</label>
+        <input asp-for="NumWeeks" type="number" class="form-control" required />
+        <span asp-validation-for="NumWeeks" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Date">Date:</label>
+        <input asp-for="Date" type="date" class="form-control" required />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
