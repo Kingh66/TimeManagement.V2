@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "_Layout"; // ADD THIS BLOCK
+}
+
+@model TimeManagement.V2.Models.Module
+
+@{
+    ViewData["Title"] = "Create Module";
+}
+
+<h2>Create New Module</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <!-- This form is REQUIRED to send data back to your controller -->
+        <form asp-action="Create" method="post">
+            <!-- This shows validation errors -->
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="Code" class="control-label"></label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Credits" class="control-label"></label>
+                <input asp-for="Credits" class="form-control" type="number" />
+                <span asp-validation-for="Credits" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ClassHoursPerWeek" class="control-label"></label>
+                <input asp-for="ClassHoursPerWeek" class="form-control" type="number" />
+                <span asp-validation-for="ClassHoursPerWeek" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="NumWeeks" class="control-label"></label>
+                <input asp-for="NumWeeks" class="form-control" type="number" />
+                <span asp-validation-for="NumWeeks" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" type="date" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+
+            <!-- Hidden fields so they don't crash if the model requires them -->
+            <input type="hidden" asp-for="TotalHoursSpent" value="0" />
+            <input type="hidden" asp-for="LastStudyDate" />
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Save Module" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

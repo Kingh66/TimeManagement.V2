@@ -1,0 +1,26 @@
+﻿@model TimeManagement.V2.Models.Module
+
+<h2>Study Sessions for @Model.Name</h2>
+
+<p>Total Hours Spent: @Model.TotalHoursSpent</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Hours</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var session in Model.StudySessions)
+        {
+            <tr>
+                <td>@session.Date.ToShortDateString()</td>
+                <td>@session.Hours</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Module" asp-action="Index">Back to Module List</a>
+

@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "_Layout"; // ADD THIS BLOCK
+}
+
+@model List<TimeManagement.V2.Models.Module>
+
+<div>
+    <a href="/Module/Create" class="btn btn-primary">Create New Module</a>
+</div>
+
+<h2 class="mt-4">Module List</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Credits</th>
+            <th>Class Hours</th>
+            <th>Weeks</th>
+            <th>Date</th>
+            <th>Hours Spent</th>
+            <th>Last Study</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var module in Model)
+        {
+            <tr>
+                <td>@module.Code</td>
+                <td>@module.Name</td>
+                <td>@module.Credits</td>
+                <td>@module.ClassHoursPerWeek</td>
+                <td>@module.NumWeeks</td>
+                <td>@module.Date.ToShortDateString()</td>
+                <td>@module.TotalHoursSpent</td>
+                <td>@module.LastStudyDate</td>
+                <!-- Edit and Delete buttons with the specific module's ID -->
+                <td>
+                    <a asp-controller="Module" asp-action="Edit" asp-route-id="@module.ID" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-controller="Module" asp-action="Delete" asp-route-id="@module.ID" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

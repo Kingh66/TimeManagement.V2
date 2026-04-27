@@ -1,0 +1,15 @@
+﻿@model TimeManagement.V2.Models.Module
+
+<h2>Edit Module</h2>
+
+<form asp-controller="Module" asp-action="Edit" method="post">
+    <div>
+        <label for="Code">Code:</label>
+        <input type="text" id="Code" name="Code" value="@Model.Code" required />
+    </div>
+
+    <!-- Add other form fields and populate them with existing module details... -->
+
+    <button type="submit">Update</button>
+</form>
+

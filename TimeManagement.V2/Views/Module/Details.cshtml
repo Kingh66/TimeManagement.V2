@@ -1,0 +1,57 @@
+﻿@model TimeManagement.V2.Models.Module
+
+@{
+    ViewData["Title"] = "Module Details";
+}
+
+<h2>Module Details</h2>
+
+<div>
+    <h4>Module Information</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Code</dt>
+        <dd class="col-sm-10">@Model.Code</dd>
+
+        <dt class="col-sm-2">Name</dt>
+        <dd class="col-sm-10">@Model.Name</dd>
+
+        <dt class="col-sm-2">Credits</dt>
+        <dd class="col-sm-10">@Model.Credits</dd>
+
+        <dt class="col-sm-2">Class Hours Per Week</dt>
+        <dd class="col-sm-10">@Model.ClassHoursPerWeek</dd>
+
+        <dt class="col-sm-2">Number of Weeks</dt>
+        <dd class="col-sm-10">@Model.NumWeeks</dd>
+
+        <dt class="col-sm-2">Date</dt>
+        <dd class="col-sm-10">@Model.Date.ToShortDateString()</dd>
+    </dl>
+</div>
+
+<div>
+    <h4>Study Sessions</h4>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Hours</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var session in Model.StudySessions)
+            {
+                <tr>
+                    <td>@session.Date.ToShortDateString()</td>
+                    <td>@session.Hours</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<p>
+    <a asp-action="Index">Back to Module List</a>
+</p>
